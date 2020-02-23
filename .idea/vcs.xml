@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/calculator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/calculator/testClone/Android-Calculator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/less3_01" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/less3_01/Android-Calculator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/less3_01/testClone/Android-Calculator" vcs="Git" />
+  </component>
+</project>
