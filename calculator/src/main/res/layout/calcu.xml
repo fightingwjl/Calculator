@@ -1,137 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_margin="8dp"
     android:layout_height="match_parent">
+
 
     <TextView
         android:id="@+id/textResult"
+        android:background="#C98819"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:layout_height="100sp"
+        android:textSize="30sp"
+        android:textColor="#ff0000"
         android:gravity="right"
         android:text="显示结果" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100sp"
         android:orientation="horizontal">
         <Button
             android:id="@+id/btnC"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="myOnclick"
             android:text="C"
+            android:textSize="30sp"
             />
         <Button
             android:id="@+id/btnDel"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:onClick="myOnclick"
             android:text="del"
+            android:textSize="30sp"
             />
         <Button
             android:id="@+id/btnDiv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="myOnclick"
             android:text="÷"
+            android:textSize="30sp"
             />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100sp"
         android:orientation="horizontal">
         <Button
             android:id="@+id/btn1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="myOnclick"
             android:text="1"
+            android:textSize="30sp"
             />
         <Button
             android:id="@+id/btn2"
+            android:onClick="myOnclick"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="2"
+            android:textSize="30sp"
             />
         <Button
             android:id="@+id/btn3"
+            android:onClick="myOnclick"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="3"
+            android:textSize="30sp"
             />
 
         <Button
             android:id="@+id/btnAdd"
+            android:onClick="myOnclick"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="+"
+            android:textSize="30sp"
             />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100sp"
         android:orientation="horizontal">
         <Button
             android:id="@+id/btn4"
             android:layout_width="0dp"
+            android:onClick="myOnclick"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="4"
+            android:textSize="30sp"
             />
         <Button
             android:id="@+id/btn5"
             android:layout_width="0dp"
+            android:onClick="myOnclick"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="5"
+            android:textSize="30sp"
             />
         <Button
             android:id="@+id/btn6"
             android:layout_width="0dp"
+            android:onClick="myOnclick"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="6"
+            android:textSize="30sp"
             />
 
         <Button
             android:id="@+id/btnSub"
             android:layout_width="0dp"
+            android:onClick="myOnclick"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="-"
+            android:textSize="30sp"
             />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100sp"
         android:orientation="horizontal">
         <Button
             android:id="@+id/btn7"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="myOnclick"
             android:text="7"
+            android:textSize="30sp"
             />
         <Button
             android:id="@+id/btn8"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="myOnclick"
             android:text="8"
+            android:textSize="30sp"
             />
         <Button
             android:id="@+id/btn9"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="myOnclick"
             android:text="9"
+            android:textSize="30sp"
             />
 
         <Button
@@ -139,34 +171,42 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="myOnclick"
             android:text="*"
+            android:textSize="30sp"
             />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100sp"
         android:orientation="horizontal">
         <Button
             android:id="@+id/btn0"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="myOnclick"
             android:text="0"
+            android:textSize="30sp"
             />
         <Button
             android:id="@+id/btnDot"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="myOnclick"
             android:text="."
+            android:textSize="30sp"
             />
         <Button
             android:id="@+id/btnEqu"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:onClick="myOnclick"
             android:text="="
+            android:textSize="30sp"
             />
     </LinearLayout>
 

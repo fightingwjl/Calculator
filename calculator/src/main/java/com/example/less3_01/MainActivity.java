@@ -8,68 +8,207 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnPot,btnAdd,btnSub,btnMul,btnDiv;
-    Button[] btn = new Button[10];
-    int[] btnId = {R.id.btn0,R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.btn5,R.id.btn6,R.id.btn7,R.id.btn8,R.id.btn9};
-    TextView textResult;
+    private Button btnPot,btnAdd,btnSub,btnMul,btnDiv,btnEqu,btnClear,btnDel;
+    private TextView textResult;
+    private StringBuffer digtalA = new StringBuffer(), digtalB = new StringBuffer();
+    private boolean isChar = false; //标记是否按下键
+    private int operator = 0; //默认运算符为 +
+    private boolean isDigtA = true; //标记第一个操作数，用于退格删除textRexsult中的内容
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calcu);
-       initView();
-        textResult = this.findViewById(R.id.textResult);
-        //匿名内部类实现方法
-//        btn0.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                textResult.setText("0");
-//            }
-//        });
-        for(int i=0; i<btn.length; i++){
-            btn[i].setOnClickListener(new myClick());
-        }
-//        btn1.setOnClickListener(new myClick());
-//        btn2.setOnClickListener(new myClick());
-//        btn3.setOnClickListener(new myClick());
-//        btn4.setOnClickListener(new myClick());
-//        btn5.setOnClickListener(new myClick());
-//        btn6.setOnClickListener(new myClick());
-//        btn7.setOnClickListener(new myClick());
-//        btn8.setOnClickListener(new myClick());
-//        btn9.setOnClickListener(new myClick());
-    }
-    void  initView(){
-        for(int i=0; i < btn.length; i++){
-            btn[i] = this.findViewById(btnId[i]);
-        }
-//        btn0 = this.findViewById(R.id.btn0);
-//        btn1 = this.findViewById(R.id.btn1);
-//        btn2 = this.findViewById(R.id.btn2);
-//        btn3 = this.findViewById(R.id.btn3);
-//        btn4 = this.findViewById(R.id.btn4);
-//        btn5 = this.findViewById(R.id.btn5);
-//        btn6 = this.findViewById(R.id.btn6);
-//        btn7 = this.findViewById(R.id.btn7);
-//        btn8 = this.findViewById(R.id.btn8);
-//        btn9 = this.findViewById(R.id.btn9);
+        initView();
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(digtalA.length() == 0){
+                    return;
+                }
+                isChar = true;
+                operator = 0;
+                textResult.setText("0");
+                isDigtA = false;
+            }
+        });
+
+        btnSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(digtalA.length() == 0){
+                    return;
+                }
+                isChar = true;
+                operator = 1;
+                textResult.setText("0");
+                isDigtA = false;
+
+            }
+        });
+
+        btnMul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(digtalA.length() == 0){
+                    return;
+                }
+                isChar = true;
+                operator = 2;
+                textResult.setText("0");
+                isDigtA = false;
+
+            }
+        });
+
+        btnDiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(digtalA.length() == 0){
+                    return;
+                }
+                isChar = true;
+                operator = 3;
+                textResult.setText("0");
+                isDigtA = false;
+
+            }
+        });
+
+        btnEqu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(digtalA.length() == 0 || digtalB.length() ==0){
+                    return;
+                }
+                float a = Float.parseFloat(digtalA.toString());
+                float b = Float.parseFloat(digtalB.toString());
+                float c = 0;
+                switch (operator){
+                    case 0:
+                         c = a + b; break;
+                    case 1:
+                         c = a - b; break;
+                    case 2:
+                        c = a * b; break;
+                    case 3:
+                        c = a / b; break;
+                }
+                textResult.setText(c + "");
+                isChar = false;
+                operator = 0;
+                isDigtA = true;
+                digtalA = new StringBuffer();
+                digtalB =new StringBuffer();
+            }
+        });
+
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isDigtA){
+                    textResult.setText("0");
+                    digtalA = new StringBuffer();
+                }else{
+                    isChar = true;
+                    textResult.setText("0");
+                    digtalB = new StringBuffer();
+                }
+            }
+        });
+
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(isDigtA){
+                    if(digtalA.length() > 0)
+                    {
+                        String temp = digtalA.substring(0, digtalA.length() - 1);
+                        textResult.setText(temp);
+                        digtalA = new StringBuffer();
+                        digtalA.append(temp);
+                    }else{
+                        textResult.setText("0");
+                        return;
+                    }
+                }else{
+                    if(digtalB.length() > 0)
+                    {
+                        isChar = true;
+                        String temp = digtalB.substring(0,digtalB.length()-1);
+                        textResult.setText(temp);
+                        digtalB = new StringBuffer();
+                        digtalB.append(temp);
+                    }else{
+                        textResult.setText("0");
+                        digtalB = new StringBuffer();
+                        digtalB.append("0");
+                        return;
+                    }
+                }
+            }
+        });
+
     }
 
-    //定义内部类实现方法
-    class myClick implements View.OnClickListener{
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()){
-                case R.id.btn0: textResult.setText("0"); break;
-                case R.id.btn1: textResult.setText("1"); break;
-                case R.id.btn2: textResult.setText("2"); break;
-                case R.id.btn3: textResult.setText("3"); break;
-                case R.id.btn4: textResult.setText("4"); break;
-                case R.id.btn5: textResult.setText("5"); break;
-                case R.id.btn6: textResult.setText("6"); break;
-                case R.id.btn7: textResult.setText("7"); break;
-                case R.id.btn8: textResult.setText("8"); break;
-                case R.id.btn9: textResult.setText("9"); break;
-            }
+    void initView(){
+        textResult = this.findViewById(R.id.textResult);
+        btnAdd = this.findViewById(R.id.btnAdd);
+        btnSub = this.findViewById(R.id.btnSub);
+        btnMul = this.findViewById(R.id.btnMul);
+        btnDiv = this.findViewById(R.id.btnDiv);
+        btnEqu = this.findViewById(R.id.btnEqu);
+        btnClear = this.findViewById(R.id.btnC);
+        btnDel = this.findViewById(R.id.btnDel);
+
+    }
+    public void myOnclick(View v){
+        switch (v.getId()){
+            case R.id.btn0:
+                setVal("0");
+                break;
+            case R.id.btn1:
+                setVal("1");
+                break;
+            case R.id.btn2:
+                setVal("2");
+                break;
+            case R.id.btn3:
+                setVal("3");
+                break;
+            case R.id.btn4:
+                setVal("4");
+                break;
+            case R.id.btn5:
+                setVal("5");
+                break;
+            case R.id.btn6:
+                setVal("6");
+                break;
+            case R.id.btn7:
+                setVal("7");
+                break;
+            case R.id.btn8:
+                setVal("8");
+                break;
+            case R.id.btn9:
+                setVal("9");
+                break;
+            case R.id.btnDot:
+                setVal(".");
+                break;
+        }
+    }
+
+    void setVal(String s){
+        if(isChar){
+            digtalB.append(s);
+            textResult.setText(digtalB);
+        }else{
+            digtalA.append(s);
+            textResult.setText(digtalA);
         }
     }
 }
